@@ -1,0 +1,19 @@
+<ion-header>
+        <ion-navbar>
+            <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+        <ion-title>Realizar compra</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let item of produtos">
+    <ion-card-header>
+        {{item.nome}}
+    </ion-card-header>
+    <ion-card-content>
+        R$ {{item.preco}}
+    </ion-card-content>
+</ion-card>
+</ion-content>
