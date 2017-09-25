@@ -1,0 +1,12 @@
+{
+    "produtos": [
+        {"nome":"Pão Francês", "preco":0.50, "quant":0},
+        {"nome":"Pão Bahiano", "preco":0.60, "quant":0},
+        {"nome":"Bolo de Goma", "preco":4.50, "quant":0},
+        {"nome":"Coxinha", "preco":1.10, "quant":0},
+        {"nome":"Empada", "preco":1.25, "quant":0},
+        {"nome":"Pão Bengala", "preco":1.00, "quant":0},
+        {"nome":"Pão Bola", "preco":0.50, "quant":0}
+    ]
+
+}

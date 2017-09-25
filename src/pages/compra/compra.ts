@@ -1,3 +1,4 @@
+import { HomePage } from './../home/home';
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
@@ -10,6 +11,7 @@ import { Http } from '@angular/http';
 export class CompraPage implements OnInit{
 
     public produtos;
+    public total = 0;
 
     constructor(public navCtrl:NavController, private lista:Http,
         private load:LoadingController, private alert:AlertController){}
@@ -22,7 +24,7 @@ export class CompraPage implements OnInit{
 
         carreg.present();
 
-        this.lista.get('http://aluracar.herokuapp.com/').map(res => res.json())
+        this.lista.get('http://localhost:3000/produtos').map(res => res.json())
         .toPromise().then(retorno => {
             carreg.dismiss();
             this.produtos = retorno;
@@ -32,10 +34,52 @@ export class CompraPage implements OnInit{
                 title: "Erro na conexão!",
                 subTitle: "Não possível obter a lista de presentes. Por favor, tente novamente mais tarde.",
                 buttons: [{
-                    text: "OK"
+                    text: "OK",
+
                 }]
             }).present();
+            this.navCtrl.push(HomePage);
         });
     
     }
+
+    comprar(produto) {
+        produto.quant++;
+        this.total += produto.preco;
+    }
+
+    zerar(produto) {
+        this.total -= produto.quant*(produto.preco);
+        produto.quant = 0;
+    }
+
+    finalizar() {
+        this.alert.create({
+            title:"Tem certeza?",
+            subTitle:"Você está prestes a finalizar uma compra de R$"+this.total.toFixed(2)+". Deseja prosseguir?",
+            buttons: [
+                {
+                    text:"Confirmar",
+                    handler: () => {
+                        this.alert.create({
+                            subTitle:"Compra efetuada com sucesso!",
+                            buttons: [{text:"OK"}]
+                        }).present();
+                        this.navCtrl.push(HomePage);
+                        this.total = 0;
+                    }
+                },
+                {
+                    text:"Cancelar",
+                    handler: () => {
+                        this.alert.create({
+                            subTitle:"Compra cancelada com sucesso!",
+                            buttons: [{text:"OK"}]
+                        }).present();
+                    }
+                }
+            ]
+        }).present();
+    }
+
 }

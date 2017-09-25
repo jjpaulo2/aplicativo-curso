@@ -8,12 +8,18 @@
 </ion-header>
 
 <ion-content>
-<ion-card *ngFor="let item of produtos">
-    <ion-card-header>
-        {{item.nome}}
-    </ion-card-header>
-    <ion-card-content>
-        R$ {{item.preco}}
-    </ion-card-content>
-</ion-card>
+    <ion-list>
+        <span *ngFor="let item of produtos">
+            <button id="zera" ion-button color="danger" (click)="zerar(item)">Zerar</button>
+            <button id="adiciona" ion-item (click)="comprar(item)">
+                <span>{{item.quant}} x </span><span>{{item.nome}}</span>
+                <span id="preco">R$ {{item.preco.toFixed(2)}}</span>
+            </button>
+        </span>
+    </ion-list>
+    <ion-card>
+        <ion-card-header>Total a pagar</ion-card-header>
+        <ion-card-content>R$ {{total.toFixed(2)}}</ion-card-content>
+    </ion-card>
+    <button ion-button block (click)="finalizar()">FINALIZAR COMPRA</button>
 </ion-content>
