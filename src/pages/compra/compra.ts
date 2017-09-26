@@ -38,7 +38,7 @@ export class CompraPage implements OnInit{
 
                 }]
             }).present();
-            this.navCtrl.push(HomePage);
+            this.navCtrl.setRoot(HomePage);
         });
     
     }
@@ -50,6 +50,7 @@ export class CompraPage implements OnInit{
 
     zerar(produto) {
         this.total -= produto.quant*(produto.preco);
+        this.total = Math.abs(this.total);
         produto.quant = 0;
     }
 
@@ -65,8 +66,8 @@ export class CompraPage implements OnInit{
                             subTitle:"Compra efetuada com sucesso!",
                             buttons: [{text:"OK"}]
                         }).present();
-                        this.navCtrl.push(HomePage);
                         this.total = 0;
+                        this.navCtrl.popToRoot();
                     }
                 },
                 {

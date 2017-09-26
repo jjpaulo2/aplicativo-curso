@@ -1,0 +1,32 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Contato</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+    <form id="formContato" (ngSubmit)="enviar()">
+        <ion-list>
+            <ion-item>
+                <ion-label floating>Nome</ion-label>
+                <ion-input type="text" [(ngModel)]="usuario.nome" name="nome" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>Email</ion-label>
+                <ion-input type="email" [(ngModel)]="usuario.email" name="email" required></ion-input>
+                </ion-item>
+            <ion-item>
+                <ion-label floating>Mensagem</ion-label>
+                <ion-textarea id="textoContato" maxlength=200 required [(ngModel)]="usuario.mensagem" name="mensagem"></ion-textarea>
+            </ion-item>
+        </ion-list>
+        <button type="submit" ion-button block >Enviar</button>
+    </form>
+
+
+</ion-content>

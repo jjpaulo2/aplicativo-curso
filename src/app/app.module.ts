@@ -5,6 +5,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CompraPage } from '../pages/compra/compra';
+import { ContatoPage } from './../pages/contato/contato';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -17,7 +18,8 @@ import 'rxjs/add/operator/toPromise';
   declarations: [
     MyApp,
     HomePage,
-    CompraPage
+    CompraPage,
+    ContatoPage
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ import 'rxjs/add/operator/toPromise';
   entryComponents: [
     MyApp,
     HomePage,
-    CompraPage
+    CompraPage,
+    ContatoPage
   ],
   providers: [
     StatusBar,
