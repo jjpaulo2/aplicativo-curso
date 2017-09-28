@@ -1,0 +1,15 @@
+// ESTILO DOS BOTÕES
+#botaoZerar {
+    width: 70px;
+}
+#botaoProduto {
+    display: inline-block;
+    width: calc(100% - 80px);
+    padding: 5px;
+}
+
+// ESTILO DO PREÇO UNITÁRIO
+#precoItem {
+    display: inline-block;
+    float: right;
+}

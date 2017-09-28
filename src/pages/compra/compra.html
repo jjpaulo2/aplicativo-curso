@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Realizar compra</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+        <span *ngFor="let item of produtos" >
+            <button ion-button (click)="zerar(item)" id="botaoZerar">Zerar</button>
+            <button ion-item (click)="compra(item)" id="botaoProduto">
+                {{item.quant}} x {{item.nome}}
+                <span id="precoItem">{{precoFormatado(item.preco)}}</span>
+            </button>
+        </span>
+    </ion-list>
+
+    <ion-card>
+        <ion-card-header>
+            Total da compra:
+        </ion-card-header>
+        <ion-card-content>
+            {{precoFormatado(this.total)}}
+        </ion-card-content>
+    </ion-card>
+
+    <button ion-button full (click)="confirmarCompra()" >Confirmar compra!</button>
+
+</ion-content>
