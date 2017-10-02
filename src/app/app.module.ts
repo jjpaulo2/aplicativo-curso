@@ -6,6 +6,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { CompraPage } from '../pages/compra/compra';
 import { ContatoPage } from './../pages/contato/contato';
+import { ConfiguracaoPage } from './../pages/configuracao/configuracao';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,7 +20,8 @@ import 'rxjs/add/operator/toPromise';
     MyApp,
     HomePage,
     CompraPage,
-    ContatoPage
+    ContatoPage,
+    ConfiguracaoPage
   ],
   imports: [
     BrowserModule,
@@ -31,7 +33,8 @@ import 'rxjs/add/operator/toPromise';
     MyApp,
     HomePage,
     CompraPage,
-    ContatoPage
+    ContatoPage,
+    ConfiguracaoPage    
   ],
   providers: [
     StatusBar,

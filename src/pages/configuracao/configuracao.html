@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Configurações do HTTP</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <form (ngSubmit)="salvarLink()">
+        <ion-list>
+            <ion-item>
+                <ion-label>IP Adress</ion-label>
+                <ion-input name="ip" [(ngModel)]="serverLink.ip" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Port</ion-label>
+                <ion-input name="port" [(ngModel)]="serverLink.port" type="text" required></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Sublink</ion-label>
+                <ion-input name="dir" [(ngModel)]="serverLink.dir" type="text"></ion-input>
+            </ion-item>
+        </ion-list>
+        <button type="submit" ion-button full>Salvar</button>
+    </form>
+
+</ion-content>

@@ -1,3 +1,4 @@
+import { ConfiguracaoPage } from './../configuracao/configuracao';
 import { HomePage } from './../home/home';
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
@@ -14,7 +15,8 @@ export class CompraPage implements OnInit{
     public total = 0;
 
     constructor(public navCtrl:NavController, private lista:Http,
-        private load:LoadingController, private alert:AlertController){}
+        private load:LoadingController, private alert:AlertController,
+        private config:ConfiguracaoPage){}
 
     ngOnInit() {
     
@@ -22,9 +24,18 @@ export class CompraPage implements OnInit{
             content: "Carregando produtos."
         });
 
+        let server = this.config.serverLink;
+        if(server.ip=="") {
+            server = {
+                ip: "localhost",
+                port: "8100",
+                dir: ""
+            }
+        }
+
         carreg.present();
 
-        this.lista.get('http://localhost:3000/produtos').map(res => res.json())
+        this.lista.get('http://'+server.ip+':'+server.port+'/'+server.dir).map(res => res.json())
         .toPromise().then(retorno => {
             carreg.dismiss();
             this.produtos = retorno;
@@ -38,7 +49,7 @@ export class CompraPage implements OnInit{
 
                 }]
             }).present();
-            this.navCtrl.setRoot(HomePage);
+            this.navCtrl.popTo(CompraPage);
         });
     
     }
