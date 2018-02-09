@@ -1,26 +1,35 @@
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+# Padaria do Sr. Bahiano
 
-## How to use this template
-
-*This template does not work on its own*. The shared files for each starter are found in the [ionic2-app-base repo](https://github.com/ionic-team/ionic2-app-base).
-
-To use this template, either create a new ionic project using the ionic node.js utility, or copy the files from this repository into the [Starter App Base](https://github.com/ionic-team/ionic2-app-base).
-
-### With the Ionic CLI:
-
-Take the name after `ionic2-starter-`, and that is the name of the template to be used when using the `ionic start` command below:
-
+Faça o download do código com 
 ```bash
-$ sudo npm install -g ionic cordova
-$ ionic start mySideMenu sidemenu
+$ git clone https://github.com/jjpaulo2/aplicativo-curso.git
+```
+Instale as dependências com
+```bash
+$ npm install
 ```
 
-Then, to run it, cd into `mySideMenu` and run:
+Para visualizar o resultado, use
+```bash
+$ ionic serve --lab
+```
 
+Para gerar sua aplicação, instale os devidos SDKs em sua máquina. Depois de preparado o ambiente, execute o comando referente a plataforma para a qual você está desenvolvendo
+```bash
+$ ionic cordova platform add android
+$ ionic cordova build android
+```
 ```bash
 $ ionic cordova platform add ios
-$ ionic cordova run ios
+$ ionic cordova build ios
+```
+```bash
+$ ionic cordova platform add windows
+$ ionic cordova build windows
 ```
 
-Substitute ios for android if not on a Mac.
+Bom trabalho, a aplicaço foi gerada com sucesso e está em um caminho semelhante a esse
+> /platforms/android/build/outputs/apk/test-app.apk
 
+---
+João Paulo Carvalho - Discente do IFPI Campus Parnaíba
